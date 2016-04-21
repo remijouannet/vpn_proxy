@@ -28,7 +28,7 @@ int create_interface(options_main* opt){
     //if ((opt->tun = open("/dev/net/tun",O_RDWR)) < 0)
     //    vpn_error_exit("tuntap", errno);
 
-    ifr.ifr_flags = IFF_TUN | IFF_MULTI_QUEUE;
+    ifr.ifr_flags = IFF_TUN | IFF_MULTI_QUEUE | IFF_NO_PI;
     strncpy(ifr.ifr_name, "vpn%d", IFNAMSIZ);
     
     //if (ioctl(opt->tun, TUNSETIFF, (void *)&ifr) < 0) vpn_error_exit("ioctl", errno);
