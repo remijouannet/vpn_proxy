@@ -14,5 +14,3 @@ run_server:
 clean:
 	rm -f main
 	rm -f src/*.o
-scp:
-	scp -P 80 -r src/ debian@vm1.remijouannet.com:/home/debian/git/vpntohttp/
