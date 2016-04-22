@@ -1,0 +1,32 @@
+ INFO: nweb starting:8181:22339
+ INFO: nweb starting:8181:22542
+ERROR: system call:bind Errno=98 exiting pid=22542
+ INFO: nweb starting:8181:22695
+ERROR: system call:bind Errno=98 exiting pid=22695
+ INFO: request:GET / HTTP/1.1**Host: 127.0.0.1:8181**Connection: keep-alive**Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8**Upgrade-Insecure-Requests: 1**User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36**DNT: 1**Accept-Encoding: gzip, deflate, sdch**Accept-Language: en-US,en;q=0.8,fr;q=0.6****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 239
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /nigel.jpg HTTP/1.1**Host: 127.0.0.1:8181**Connection: keep-alive**Accept: image/webp,image/*,*/*;q=0.8**User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36**DNT: 1**Referer: http://127.0.0.1:8181/**Accept-Encoding: gzip, deflate, sdch**Accept-Language: en-US,en;q=0.8,fr;q=0.6****:2
+ INFO: SEND:nigel.jpg:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+
+:2
+ INFO: request:GET /favicon.ico HTTP/1.1**Host: 127.0.0.1:8181**Connection: keep-alive**User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36**Accept: */***DNT: 1**Referer: http://127.0.0.1:8181/**Accept-Encoding: gzip, deflate, sdch**Accept-Language: en-US,en;q=0.8,fr;q=0.6****:3
+ INFO: SEND:favicon.ico:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 1334
+Connection: close
+Content-Type: image/ico
+
+:3
