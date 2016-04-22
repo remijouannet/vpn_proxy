@@ -1,8 +1,10 @@
 # vpn_proxy
 
-* build it
+* build it and generate certificate/key
 
 ```
+keys/gen.sh
+
 docker pull remijouannet/docker-tinyproxy 
 
 ./docker.sh build
