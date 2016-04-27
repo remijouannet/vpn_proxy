@@ -1,5 +1,5 @@
 FROM alpine:3.3
-MAINTAINER Rémi Jouannet "remijouannet@gmail.com"
+MAINTAINER Remi Jouannet "remijouannet@gmail.com"
 
 RUN apk update && apk upgrade
 RUN apk add openssl-dev gcc make iputils 

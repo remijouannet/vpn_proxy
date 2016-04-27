@@ -1,5 +1,5 @@
-#CFLAGS=-I/usr/include/openssl -lssl -lcrypto -D DEBUG
-CFLAGS=-I/usr/include/openssl -lssl -lcrypto
+CFLAGS=-I/usr/include/openssl -lssl -lcrypto -D DEBUG
+#CFLAGS=-I/usr/include/openssl -lssl -lcrypto
 
 all: src/*.c
 	cc ${CFLAGS} -Wall -Werror $^ -o main 

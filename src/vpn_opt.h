@@ -11,7 +11,6 @@ struct options_main
     int port_proxy;
     int proxy;
     int tls;
-    int tuns[10];
 };
 
 void print_usage();

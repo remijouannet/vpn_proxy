@@ -26,7 +26,6 @@ run_server() {
         --cap-add=NET_ADMIN \
         --device='/dev/net/tun' \
         --name $APP1 \
-        -p 127.0.0.1:80:80 \
         -p 127.0.0.1:443:443 \
         -i -t $APP0 run_server;
 }
@@ -44,7 +43,6 @@ run_client() {
         --cap-add=NET_ADMIN \
         --device='/dev/net/tun' \
         --name $APP2 \
-        -p 127.0.0.1:8080:8080 \
         -e IPSERVER=$ipserver \
         -e IPPROXY=$ipproxy \
         -i -t $APP0 run_client;

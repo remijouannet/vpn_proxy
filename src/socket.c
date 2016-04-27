@@ -29,7 +29,6 @@ int socket_client(options_main* opt) {
     printf("socket_client\n");
     
     int sockfd;
-    int tun = 0;
     struct sockaddr_in serv_addr;
 
     memset(&serv_addr, '\0', sizeof(serv_addr));
@@ -54,9 +53,6 @@ int socket_client(options_main* opt) {
     if (connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
         vpn_error_exit("ERROR connecting", errno);
 
-    opt->tun = opt->tuns[tun];
-    tun += 1;
- 
     if(opt->proxy == 1){
         printf("send proxy %s\n", opt->ip_proxy);
         uint8_t buffer[1500] = {0};
@@ -87,7 +83,7 @@ int socket_client(options_main* opt) {
 }
 
 int socket_server(options_main* opt){
-    int sockfd, new_fd, pid, tun = 0;
+    int sockfd, new_fd, pid;
     struct sockaddr_in my_addr;
     struct sockaddr their_addr;
     unsigned int sin_size;
@@ -116,11 +112,6 @@ int socket_server(options_main* opt){
         if((new_fd = accept(sockfd, &their_addr, &sin_size)) < 0)
             vpn_error_exit("accept", errno);
           
-        printf("socket tuntap %d\n", opt->tuns[tun]);
-
-        opt->tun = opt->tuns[tun];
-        tun += 1;
-        
         pid = fork();
 
         if(pid == 0){

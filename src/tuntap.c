@@ -21,22 +21,21 @@
 #define BUFFER 9000
 
 int create_interface(options_main* opt){
-    int fd, i;
     struct ifreq ifr;
     memset(&ifr, 0, sizeof(struct ifreq));
 
-    //if ((opt->tun = open("/dev/net/tun",O_RDWR)) < 0)
-    //    vpn_error_exit("tuntap", errno);
+    if ((opt->tun = open("/dev/net/tun",O_RDWR)) < 0)
+        vpn_error_exit("tuntap", errno);
 
-    ifr.ifr_flags = IFF_TUN | IFF_MULTI_QUEUE | IFF_NO_PI;
+    ifr.ifr_flags = IFF_TUN | IFF_MULTI_QUEUE;
     strncpy(ifr.ifr_name, "vpn%d", IFNAMSIZ);
     
-    //if (ioctl(opt->tun, TUNSETIFF, (void *)&ifr) < 0) vpn_error_exit("ioctl", errno);
-    for (i = 0; i < 2; i++) {
+    if (ioctl(opt->tun, TUNSETIFF, (void *)&ifr) < 0) vpn_error_exit("ioctl", errno);
+    /*for (i = 0; i < 2; i++) {
           fd = open("/dev/net/tun", O_RDWR);
           ioctl(fd, TUNSETIFF, (void *)&ifr);
           opt->tuns[i] = fd;
-    }
+    }*/
 
     printf("Allocated interface %s. Configure and use it\n", ifr.ifr_name);
     
