@@ -1,10 +1,10 @@
-CFLAGS=-I/usr/include/openssl -lssl -lcrypto -D DEBUG
-#CFLAGS=-I/usr/include/openssl -lssl -lcrypto
+CFLAGSD=-I/usr/include/ -lssl -lcrypto -D DEBUG
+CFLAGS=-I/usr/include/ -lssl -lcrypto
 VERSION=$$(git describe --abbrev=0 --tags)
 PWD=$$(pwd)
 
-pkg: clean src/*.c
-	cc ${CFLAGS} -Wall -Werror $^ -o pkg/vpn_proxy
+pkg: src/*.c
+	cc -Wall -Werror $^ ${CFLAGS} -o pkg/vpn_proxy
 release:
 	scripts/github-releases.sh
 docker-image:
@@ -19,7 +19,7 @@ docker-release:
 		-e "GITHUB_TOKEN=$(GITHUB_TOKEN)" \
 		vpn_proxy:$(VERSION) release 
 all: src/*.c
-	cc ${CFLAGS} -Wall -Werror $^ -o main 
+	cc -Wall -Werror $^ ${CFLAGSD} -o main 
 run:
 	./main
 run_client:

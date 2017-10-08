@@ -1,10 +1,12 @@
-FROM alpine:3.3
+FROM ubuntu:16.04
 MAINTAINER Remi Jouannet "remijouannet@gmail.com"
 
-RUN apk update && apk upgrade
-RUN apk --no-cache add openssl-dev gcc make iputils libc-dev \
-        linux-headers syslinux-dev bash tcpdump nmap-nping wget
+# Install Deps
+RUn apt-get update
+RUN apt-get install -y bzip2 expect git wget build-essential libssl-dev tcpdump nmap iputils-ping bash
 
+# Clean
+RUN apt-get clean && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install github-releases
 RUN wget https://github.com/aktau/github-release/releases/download/v0.7.2/linux-amd64-github-release.tar.bz2

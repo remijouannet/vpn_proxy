@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <netinet/ip.h>
-#include <evp.h>
-#include <aes.h>
+#include <openssl/evp.h>
+#include <openssl/aes.h>
 #include <string.h>
 
 #include "vpn_opt.h"
