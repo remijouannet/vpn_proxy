@@ -2,6 +2,7 @@ main
 *.o
 src/*.o
 src/*.swp
+pkg/
 *.swp
 keys/*.srl
 keys/*.csr
