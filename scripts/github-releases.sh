@@ -28,7 +28,7 @@ tar cvfz vpn_proxy.tar.gz vpn_proxy
 echo "upload vpn_proxy.apk"
 github-release upload \
     --user remijouannet \
-    --name "$version-hyper-alpha-yolo-experimental" \
+    --name "vpn_proxy.tar.gz" \
     --repo vpn_proxy \
     --file "vpn_proxy.tar.gz" \
     --replace \
