@@ -1,0 +1,10 @@
+main
+*.o
+src/*.o
+src/*.swp
+*.swp
+keys/*.srl
+keys/*.csr
+keys/*.crt
+keys/*.key
+keys/*.srt
